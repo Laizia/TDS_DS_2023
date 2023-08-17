@@ -1,10 +1,10 @@
 body{
   padding: 0px;
   margin: 0px;
-  background-color: aqua;
+  background-color: rgba(78, 235, 227, 0.644);
 }
 
-#login{
+#Login{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -13,7 +13,7 @@ body{
 }
 
 .card{
-    background-color: rgba(19, 19, 19, 0.3);
+    background-color: rgba(0, 0, 0, 0.3);
     padding: 40px;
     border-radius: 20px;
     width: 280px;
@@ -32,6 +32,7 @@ body{
 }
 
 .card-content input{
+    color: #fff;
     margin-top: 10px;
     padding: 0 5px;
     background-color: transparent;
@@ -47,3 +48,32 @@ body{
     padding: 10px 0px;
 
 }
+
+.card-footer{
+    display: flex;
+    flex-direction: column;
+
+}
+
+.card-footer .submit{
+    cursor: pointer;
+    width: 100%;
+    height: 40px;
+    background-color: #098c8e;
+    border: none;
+    border-radius: 8px;
+    color: #a3edd7;
+    font-size: 15px;
+    margin: 10px 0px;
+    text-transform: lowercase;
+}
+
+.card-footer a{
+ color: #fff;
+text-decoration: none;
+text-align: center;
+font-size: 15px;
+margin-top: 10px;
+opacity: 0.7;
+}
+
