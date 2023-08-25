@@ -1,4 +1,56 @@
 body {
     background-image: url("./fundo.jpg");
-    background-color: #cccccc;
-  }
+}
+.icon{
+  width: 10%;
+  height: 15%;
+}
+
+.lado-esquerdo h1{
+  font-size: 45px;
+  color: #fff;
+  width: 35%;
+
+}
+
+.lado-esquerdo p{
+  color: #fff;
+  font-size: 22px;
+  width: 26%;
+}
+
+.conteudo{
+  display: flex;
+}
+
+.lado-direito{
+  text-align: center;
+}
+
+.qr-code img{
+  width: 50%;
+  height: 50%;
+  border-radius: 25px;
+  
+}
+
+.botao{
+  width: 100px;
+  height: 50px;
+  background-color: #03748B;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+
+.botao a{
+  text-decoration: none;
+}
+
+.qr-code img{
+  width: 50%;
+  height: 50%;
+  border-radius: 25px;
+  
+}
