@@ -191,3 +191,28 @@ li{
 .item-rad span:hover{
     color: var(--color-4)
 }
+
+@media(max-width: 45px){
+    
+    body{
+        background-color: var(--color-2);
+    }
+
+    .card{
+        margin-top: 0px;
+        width: 100%;
+        filter: none;
+    }
+
+    .card-content{
+        height: 63vh;
+    }
+
+    .card-button{
+        height: 3vh;
+    }
+
+    ::-webkit-scrollbar{
+        width: 100%;
+    }
+}
