@@ -16,19 +16,20 @@
             <input type="text" id="2" placeholder="Second number">
         </div>
       
-        <div>
-            <button id="soma">+</button>
-            <button id="subtracao">-</button>
-            <button id="divisao">*</button>
-            <button id="multiplicacao">/</button>
+        <div class="opoeracoes">
+            <button id="soma" onclick="operacoes('+')">+</button>
+            <button id="subtracao" onclick="operacoes('-')">-</button>
+            <button id="divisao" onclick="operacoes('*')">*</button>
+            <button id="multiplicacao" onclick="operacoes('/')">/</button>
         </div>
 
         <div class="resultado">
-            <p>Resultado = </p>
-            <span id="resultado"></span>
+            <p>Resultado do calculo: </p>
+            <span id="resultadoCal"></span>
         </div>
       
     </div>
 
 </body>
+<script src="/Calculadora/js/index.js"></script>
 </html>
