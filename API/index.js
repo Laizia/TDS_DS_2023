@@ -1,26 +1,14 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const routes = require('./routes/index.routes')
+
+
 const app = new express();
 
 app.use(bodyParser.json());
 
-app.get("/alunos", (request, response)=>{
-    response.send("Alunos");
-});
+app.use(routes);
 
-app.get("/professores", (request, response)=>{
-    response.send("professores");
-});
-
-app.get("/soma", (request, response)=>{
-    var valor1 = 10;
-    var valor2 = 20;
-   
-    var resultado = valor1 + valor2;
-
-    response.send(`o resultado é: ${resultado}`);
-    
-});
 
 app.post("/soma_parametros", (request, response)=> {
     console.log(request.body);
