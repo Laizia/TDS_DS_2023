@@ -1,9 +1,9 @@
 const express = require("express");
+const { listaAlunos } = require("../controller/alunos.controller");
+
 const routes = new express.Router();
 
-routes.get("/", (request, response)=>{
-    response.send("Alunos");
-});
+routes.get("/", listaAlunos);
 
 routes.get("/notas", (request, response)=>{
     response.send("notas");
