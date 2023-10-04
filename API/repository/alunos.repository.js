@@ -1,7 +1,7 @@
 const conn = require("../myslq.knex");
 
 module.exports = {
-    buscaTodos : ()=>{
-        return conn.select().from("alunos");
+    buscaTodos: async ()=>{
+        return await conn.select().from("alunos");
     }
 };
