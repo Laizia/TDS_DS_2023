@@ -1,5 +1,5 @@
 const { response } = require("express");
-const { buscaTodos, buscaAlunosPorId } = require("../repository/alunos.repository");
+const { buscaTodos, buscaAlunosPorId, inserir } = require("../repository/alunos.repository");
 const res = require("express/lib/response");
 
 
@@ -22,6 +22,17 @@ module.exports = {
             console.log(error);
             response.status(500).send({ message: "Erro ao consultar aluno por Id "})
         });
-    //   response.send(request.params.id);
+    },
+
+    inserir: (request, response) =>{
+        
+        const data = {nome, idade, email }= request.body;
+
+        inserir(data).then((data) =>{
+            response.status(200).send({ message: "Aluno inserirdo com sucesso", data});
+        }).catch((error) =>{
+            console.log(error)
+            response.status(500).send({ message: "Erro ao inserir um novo aluno"});
+        })
     }
 }
