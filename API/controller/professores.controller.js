@@ -1,27 +1,27 @@
 const { response } = require("express");
-const { buscaTodos, buscaAlunosPorId, inserir, atualizar, deletar } = require("../repository/alunos.repository");
+const { buscaTodos, buscaProfessoresPorId, inserir, atualizar, deletar } = require("../repository/professores.repository");
 const res = require("express/lib/response");
 
 
 module.exports = {
-    listaAlunos:(request, response)=>{
+    buscaTodos:(request, response)=>{
         buscaTodos().then((data)=> {
             response.send(data);
         }).catch((error)=>{
-            response.status(404).send({ message: "Error ao consultar aluno"})
+            response.status(500).send({ message: "Error ao consultar todos os professores"})
         });
     
     }, 
 
-    buscaAlunosPorId:(request, response)=>{
+    buscaProfessoresPorId:(request, response)=>{
         const {id} = request.params;
 
-        buscaAlunosPorId(id).then((data)=>{
+        buscaProfessoresPorId(id).then((data)=>{
             response.send(data);
         }).catch((error)=>{
             console.log(error);
-            response.status(500).send({ message: "Erro ao consultar aluno por Id "})
-        });
+            response.status(500).send({ message: "Erro ao consultar Professor por Id "})
+        })
     },
 
     inserir: (request, response) =>{
@@ -29,10 +29,10 @@ module.exports = {
         const data = {nome, idade, email }= request.body;
 
         inserir(data).then((data) =>{
-            response.status(200).send({ message: "Aluno inserirdo com sucesso", data});
+            response.status(200).send({ message: "Professor inserirdo com sucesso", data});
         }).catch((error) =>{
             console.log(error)
-            response.status(500).send({ message: "Erro ao inserir um novo aluno"});
+            response.status(500).send({ message: "Erro ao inserir um novo Professor"});
         })
     },
 
@@ -46,10 +46,10 @@ module.exports = {
         }
 
         atualizar(id, data).then((data) => {
-            response.send({ message: "Aluno atualizado com sucesso" })
+            response.send({ message: "Professor atualizado com sucesso" })
         }).catch((error) => {
             console.log(error);
-            response.status(500).send({ message: "erro ao atualizar o aluno!" })
+            response.status(500).send({ message: "erro ao atualizar o Professor!" })
         })
     },
 
@@ -57,11 +57,11 @@ module.exports = {
         const { id } = request.params;
 
         deletar(id).then((data) => {
-            response.send({ message: "Aluno deletado com sucesso!" });
+            response.send({ message: "Professor deletado com sucesso!" });
         }).catch((error) => {
 
             console.log(error);
-            response.status(500).send({ message: "erro ao deletar o aluno!" })
+            response.status(500).send({ message: "erro ao deletar o Professor!" })
         });
  }
 }
