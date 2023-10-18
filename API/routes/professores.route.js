@@ -1,10 +1,10 @@
 const express = require("express");
-const { listaProfessores, buscaProfessoresPorId, inserir, deletar, atualizar,} = require("../controller/professores.controller");
+const {  buscaProfessoresPorId, inserir, deletar, atualizar,} = require("../controller/professores.controller");
 const { buscaTodos } = require("../repository/professores.repository");
 
 const routes = new express.Router();
 
-routes.get("/", listaProfessores);
+
 routes.post("/", inserir);
 
 routes.get("/", buscaTodos);
