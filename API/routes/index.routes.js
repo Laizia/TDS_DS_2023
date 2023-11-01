@@ -1,15 +1,13 @@
 const express = require("express");
-const alunosRoutes = require("./alunos.route");
-const professoresRoutes = require("./professores.route");
-const secretariaRoutes = require("./secretaria.route");
+const alunosRoute = require("./alunos.route");
+const professoresRoute = require("./professores.route");
+const secretariaRoute = require("./secretaria.route");
 
 const routes = express.Router();
 
-routes.use("/alunos", alunosRoutes);
+routes.use("/alunos", alunosRoute);
+routes.use("/professores", professoresRoute);
+routes.use("/secretaria", secretariaRoute);
 
-routes.use("/professores", professoresRoutes);
-
-routes.use("/secretaria", secretariaRoutes);
 
 module.exports = routes;
-
