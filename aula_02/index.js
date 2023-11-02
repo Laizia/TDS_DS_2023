@@ -1,14 +1,11 @@
-function somaDoisValores(a, b) {
-  return a + b;
+var n = 10;
+
+function fatorial(n) {
+    var f = 1;  
+    for (var i = 1; i <= n; i++) {
+        f *= i;
+    }        
+    return f;
 }
 
-const novaFuncao = (a, b) => {
-  console.log("Essa nova função retorna: " + (a + b));
-};
-
-var numero1 = 3;
-var numero2 = 2;
-
-console.log("O resultado da soma é: " + somaDoisValores(numero1, numero2));
-
-novaFuncao(numero1, numero2);
+console.log("Fatorial é = " + fatorial(n));
