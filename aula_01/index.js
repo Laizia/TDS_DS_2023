@@ -1,73 +1,78 @@
-// variavel
-var teste = 1;
-teste = teste + "A";
-// console.log("Exemplo variavel: " + teste);
+//variavel
+var teste = 3;
+teste = teste + "M";
+console.log(typeof teste);
 
-//if-sele
-var situacao = false;
 
-if (situacao) {
-  console.log("Você está ativo! 👍");
-} else {
-  console.log("Você está inativo! 👎");
+//if-else
+var situacao = true;
+
+if (situacao == true) {
+    console.log("Você está ativo! 👍");
 }
 
-// laços
-const lista = ["Douglas", "Laízia", "Otávio", "Diego", "João", "Jean"];
-const tamanhoLista = lista.length - 1;
-console.log("tamanho da lista:" + tamanhoLista);
-
-for (var i = 0; i <= tamanhoLista; i++) {
-  console.log("Aluno(a): " + lista[i]);
+else{
+    console.log("Você está inativo! 👎");
 }
-console.log("-- - while - --");
+
+
+//laços
+const lista = ["Otávio", "Otávio", "Otávio", "Otávio"];
+const tamanhoLista = lista.length -1;
+console.log("tamanho da lista: " + tamanhoLista);
+
+for (var i= 0; i <= tamanhoLista; i++)  {
+    console.log("Aluno: " + lista[i]);
+}
+
+console.log("-- - WHILE -- -");
 var i2 = 0;
 while (i2 <= tamanhoLista) {
-  console.log("Aluno(a): " + lista[i2]);
-  i2++;
+    console.log("Aluno: " + lista[i2]);
+    i2++;
 }
 
-console.log("-- - forEach - --");
-
+console.log("-- - forEach -- -");
 lista.forEach((value, index) => {
-  console.log(index + " - " + value);
-});
+    console.log(index + " - " + value);
+})
 
-// switch
-console.log("-- - switch - --");
-const valorDeEntrada = 3;
+
+//SWITCH
+
+console.log("-- - switch -- -");
+const valorDeEntrada = 1;
 
 switch (valorDeEntrada) {
-  case 1:
-    console.log("O valor é 1");
-    break;
-  case 2:
-    console.log("O valor é 2");
-    break;
-  case 3:
-    console.log("O valor é 3");
-    break;
-  default:
-    console.log("Valor indefinido!");
-    break;
+    case 1:
+        console.log("O valor é 1");
+        break;
+
+    case 2:
+        console.log("O valor é 2");
+        break;
+        
+    case 3:
+        console.log("O valor é 3");
+    default:
+        console.log("Valor indefinido");
+        break;
 }
 
-// object
-console.log("-- - object - --");
 
+//object
+console.log("-- - object - --");
 const alunos = [
-  { nome: "João", idade: 16 },
-  { nome: "Douglas", idade: 16 },
-  { nome: "Laízia", idade: 17 },
-  { nome: "Otávio", idade: 16 },
-  { nome: "Diego", idade: 16 },
-  "olá mundo, eu vim para estragar!",
+    {nome: "Laizia", idade: 17},
+    {nome: "Otávio", idade: 16},
+    {nome: "Lavinia", idade: 16},
+    "Olá mundo!",
 ];
 
-alunos.forEach((value) => {
-  if (typeof value == "object") {
+alunos.forEach((value) =>{
+    if (typeof value == "object") {
     console.log(value.nome, value.idade);
-  } else {
-    console.log(value);
-  }
+    } else{
+        console.log(value);
+    }
 });
