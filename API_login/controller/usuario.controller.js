@@ -1,60 +1,83 @@
-const { listaUsuarios, buscaUsuarioPorID, inserir, atualizar, deletar } = require('../repository/usuario.repository')
+const { listaUsuarios, buscaUsuarioPorID, inserir, atualizar, deletar, loginUsuario } = require('../repository/usuario.repository')
 
 module.exports = {
-    buscarUsuario: (req, res)=>{
+    buscarUsuario: (require, response)=>{
 
         listaUsuarios().then((data)=>{
-            res.send(data);
+            response.send(data);
         }).catch((error)=>{
-            res.status(404).send({message: "Erro ao consultar usuarios!"});
+            response.status(404).send({message: "Erro ao consultar usuarios!"});
         })
     },
 
-    buscaUserID: (req, res)=>{
-        const {id} = req.params;
+    buscaUserID: (require, response)=>{
+        const {id} = require.params;
 
         buscaUsuarioPorID(id).then((data)=>{
-            res.send(data);
+            response.send(data);
         }).catch((error)=>{
-            res.status(500).send({message: "Erro ao consultar por ID!"});
+            response.status(500).send({message: "Erro ao executar atividade"});
         })
      },
 
-     insert: (req, res)=>{
-        const data = {nome, user_name, email} = req.body;
+     insert: (require, response)=>{
+        const data = {nome, user_name, email} = require.body;
 
         inserir(data).then((data)=>{
-            res.status(200).send({message: "Usuario inserido com sucesso!", data})
+            response.status(200).send({message: "Usuario inserido com sucesso!", data})
         }).catch((error)=>{
-            console.log(error);
-            res.status(500).send({message: "Erro ao inserir aluno!"})
+            response.status(500).send({message: "Erro ao inserir usuario!"})
         })
      },
 
-     update: (req, res)=>{
-        const {id} = req.params;
-        const data = req.body;
+     update: (require, response)=>{
+        const {id} = require.params;
+        const data = require.body;
 
         if (data.id){
-            res.status(400).send({message: "Não é possível enviar o parâmetro ID!"});
-        }
+            response.status(400).send({message: "Não é possível enviar o parâmetro ID!"});
+        }   
 
         atualizar(id, data).then((data)=>{
-            res.status(200).send({message: "Sucesso ao atualizar!"})
+            response.status(200).send({message: "Sucesso ao atualizar!"})
         }).catch((error)=>{
-            res.status(500).send({message: "Erro ao atulizar"})
+            response.status(500).send({message: "Erro ao atulizar"})
         })
      },
 
-     del: (req, res)=>{
-        const {id} = req.params;
+     del: (require, response)=>{
+        const {id} = require.params;
 
         deletar(id).then((data)=>{
-            res.status(200).send({message: "Sucesso ao deletar usuário!"})
+            response.status(200).send({message: "Sucesso ao deletar usuário!"})
         }).catch((error)=>{
-            console.log(error)
-            res.status(500).send({message: "Erro ao deletar usuário!"})
+            response.status(500).send({message: "nao foi possivel deletar o user"})
         })
-     }
+     },
 
+     login: async (require, response)=>{
+        const {user_name, senha} = req.body
+
+        const user = await loginUsuario();
+
+        if(senha == usuario.senha){
+            if(user_name == usuario.user_name){
+                response.send({message: "Login realizado com sucesso!"})
+            }
+        }else{
+            response.send({message: "Erro ao fazer login"});
+        };
+     },
+
+     esqueceuSenha: async (require, response)=>{
+        const {email} = require.body;
+
+        const user = await conn.select().from("usuario").where({email:email});
+
+        const chave = Math.floor(Math.random() * 100);
+
+        await conn.insert(user.id, chave).into("recuparar_senha");
+        
+        response.send({chave});
+     },
 }

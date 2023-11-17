@@ -12,7 +12,7 @@ CREATE TABLE `usuario` (
   PRIMARY KEY (`id`),
   KEY `usuario_FK` (`atribuicao_id`),
   CONSTRAINT `usuario_FK` FOREIGN KEY (`atribuicao_id`) REFERENCES `usuario` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) 
+); 
 
 
 CREATE TABLE `atribuicao` (
@@ -20,7 +20,7 @@ CREATE TABLE `atribuicao` (
   `descricao` varchar(100) DEFAULT NULL,
   `status` tinyint(1) DEFAULT NULL,
   PRIMARY KEY (`id`)
-)
+);
 
 
 CREATE TABLE `rec_senha` (
@@ -30,4 +30,4 @@ CREATE TABLE `rec_senha` (
   PRIMARY KEY (`id`),
   KEY `rec_senha_FK` (`usuario_id`),
   CONSTRAINT `rec_senha_FK` FOREIGN KEY (`usuario_id`) REFERENCES `rec_senha` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-)
+);
